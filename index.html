@@ -36,7 +36,7 @@
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
   .svc { border-radius: 10px; padding: 11px 13px; border: 1px solid; display: flex; align-items: center; gap: 11px; }
   .svc.unavailable { background: #FCEBEB; border-color: #F7C1C1; }
-  .svc.degraded    { background: #FAEEDA; border-color: #FAC775; }
+  .svc.degraded    { background: #FCEBEB; border-color: #FAC775; }
   .svc.available   { background: #EAF3DE; border-color: #C0DD97; }
   .svc-icon { font-size: 18px; flex-shrink: 0; }
   .svc-name { font-size: 13px; font-weight: 500; line-height: 1.2; }
@@ -51,14 +51,15 @@
 </head>
 <body>
 
-<div class="eyebrow">Internal Operations</div>
-<h1>Work Impact Tracker</h1>
+<div class="eyebrow">Marvins'</div>
+<h1>Work Impact Viewer</h1>
 <p class="subtitle">Select a team below to see which services or tools are affected by their work.</p>
 
 <div class="label">Teams</div>
 <div class="teams-grid">
-  <button class="team-btn" onclick="show('networking', this)"><span class="dot" style="background:#E24B4A"></span>Networking</button>
-  <button class="team-btn" onclick="show('kitchen', this)"><span class="dot" style="background:#639922"></span>Kitchen / Facilities</button>
+  <button class="team-btn" onclick="show('Site Outage', this)"><span class="dot" style="background:#E24B4A"></span>Site Outage</button>
+  <button class="team-btn" onclick="show('LifeX', this)"><span class="dot" style="background:#639922"></span>LifeX</button>
+  <button class="team-btn" onclick="show('LifeX URG Failover', this)"><span class="dot" style="background:#639922"></span>LifeX URG Failover</button>  
   <button class="team-btn" onclick="show('itsupport', this)"><span class="dot" style="background:#378ADD"></span>IT Support</button>
   <button class="team-btn" onclick="show('av', this)"><span class="dot" style="background:#7F77DD"></span>AV / Comms</button>
   <button class="team-btn" onclick="show('security', this)"><span class="dot" style="background:#D85A30"></span>Security</button>
@@ -77,26 +78,43 @@
     <span>Select a team to view impact</span>
   </div>
 
-  <div id="panel-networking" class="team-panel">
-    <div class="panel-header"><span class="panel-dot" style="background:#E24B4A"></span><span class="panel-title">Networking</span></div>
-    <div class="panel-desc">Network infrastructure, routing, and connectivity.</div>
+  <div id="panel-Site Outage" class="team-panel">
+    <div class="panel-header"><span class="panel-dot" style="background:#E24B4A"></span><span class="panel-title">Site Outage</span></div>
+    <div class="panel-desc">Site Outage</div>
     <div class="legend">
       <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
       <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
       <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
     </div>
     <div class="services-grid">
-      <div class="svc unavailable"><span class="svc-icon">&#127760;</span><div><div class="svc-name">Router</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#128274;</span><div><div class="svc-name">VPN</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc degraded"><span class="svc-icon">&#128246;</span><div><div class="svc-name">Wi-Fi</div><div class="svc-status">Degraded</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#128424;</span><div><div class="svc-name">Printer</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc available"><span class="svc-icon">&#128231;</span><div><div class="svc-name">Email</div><div class="svc-status">Available</div></div></div>
+      <div class="svc Reception Level"><span class="svc-icon">&#127760;</span><div><div class="svc-name">RSSI Strength</div><div class="svc-status">Degraded</div></div></div>
+      <div class="svc Advised"><span class="svc-icon">&#128274;</span><div><div class="svc-name">DMO</div><div class="svc-status">Advised</div></div></div>
+      <div class="svc degraded"><span class="svc-icon">&#128246;</span><div><div class="svc-name">Handheld Coverage</div><div class="svc-status">Degraded</div></div></div>
     </div>
   </div>
 
-  <div id="panel-kitchen" class="team-panel">
-    <div class="panel-header"><span class="panel-dot" style="background:#639922"></span><span class="panel-title">Kitchen / Facilities</span></div>
-    <div class="panel-desc">Kitchen appliances and shared facilities equipment.</div>
+  <div id="panel-LifeX URG Failover" class="team-panel">
+    <div class="panel-header"><span class="panel-dot" style="background:#639922"></span><span class="panel-title">LifeX</span></div>
+    <div class="panel-desc">LifeX move of Universal Radio Gateways (URG).</div>
+    <div class="legend">
+      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+      <div class="legend-item"><span class="pip" style="background:#fd1100"></span>Required</div>      
+    </div>
+    <div class="services-grid">
+      <div class="svc Available"><span class="svc-icon">&#127838;</span><div><div class="svc-name">Status from MDT</div><div class="svc-status">Available</div></div></div>
+      <div class="svc Required"><span class="svc-icon">&#127838;</span><div><div class="svc-name">Use of Fixed Mobile Radios</div><div class="svc-status">Required</div></div></div>              
+      <div class="svc unavailable"><span class="svc-icon">&#129481;</span><div><div class="svc-name">Voice</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#9749;</span><div><div class="svc-name">Data</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc Unavailable"><span class="svc-icon">&#128226;</span><div><div class="svc-name">CallBack Requests</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc Unavailable"><span class="svc-icon">&#127838;</span><div><div class="svc-name">Status Messaging</div><div class="svc-status">Unavailable</div></div></div>
+    </div>
+  </div>
+
+    <div id="panel-LifeX" class="team-panel">
+    <div class="panel-header"><span class="panel-dot" style="background:#639922"></span><span class="panel-title">LifeX</span></div>
+    <div class="panel-desc">LifeX Infrastructure and other ICCS Functionality.</div>
     <div class="legend">
       <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
       <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
