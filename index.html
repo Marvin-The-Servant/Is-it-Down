@@ -61,6 +61,7 @@
   <button class="team-btn" onclick="show('Airwave MCADI', this)"><span class="dot" style="background:#1b961b; justify-content: center"></span>Airwave<br>MCADI</button> 
   <button class="team-btn" onclick="show('Airwave CCM Pause', this)"><span class="dot" style="background:#8bb67a; justify-content: center"></span>Airwave<br>CCM Pause</button>  
   <button class="team-btn" onclick="show('ZONE CONTROLLER SWAP-OVER', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>Airwave<br>Zone Controller</button>
+  <button class="team-btn" onclick="show('Airwave SDR Reset/Swapover', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>Airwave<br>SDR Reset/Swapover</button>
 
   <button class="team-btn" onclick="show('LifeX', this)"><span class="dot" style="background:#639922"></span>LifeX</button>
   <button class="team-btn" onclick="show('LifeX URG Failover', this)"><span class="dot" style="background:#639922"></span>LifeX URG Failover</button>  
@@ -115,7 +116,7 @@
     </div>
   </div>
 
-    <div id="panel-Airwave CCM Pause" class="team-panel">
+  <div id="panel-Airwave CCM Pause" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave CCM Pause</span></div>
     <div class="panel-desc">System used to manage network or site configurations. During this 
 maintenance, the "CCM XXXX cluster" will be paused, blocking both customers and Airwave from making configuration 
@@ -131,6 +132,25 @@ changes.</div>
       <div class="svc unavailable"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Kill</div><div class="svc-status">Unavailable</div></div></div>
     </div>
   </div>
+
+  <div id="panel-Airwave SDR Reset/Swapover" class="team-panel">
+    <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave<br>SDR Reset/Swapover</span></div>
+    <div class="panel-desc">Short Data router carries, short data.</div>
+    <div class="legend">
+      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+    </div>
+    <div class="services-grid">
+      <div class="svc available"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Emergency Activations</div><div class="svc-status">Available</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Dual Dispatch</div><div class="svc-status">Available</div></div></div>                
+      <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128189;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Status Messages</div><div class="svc-status">Unavailable</div></div></div>
+ 
+    </div>
+  </div>
+
 
   <div id="panel-ZONE CONTROLLER SWAP-OVER" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#7F77DD"></span><span class="panel-title">ZONE CONTROLLER SWAP-OVER</span></div>
