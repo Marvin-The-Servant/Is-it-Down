@@ -6,6 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Work Impact Tracker</title>
 <style>
+  #lightbox { 
+  display: none; 
+  position: fixed; 
+  top: 0; left: 0; 
+  width: 100%; height: 100%; 
+  background: rgba(0,0,0,0.8); 
+  z-index: 999; 
+  align-items: center; 
+  justify-content: center; 
+}
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #F7F6F3; color: #1A1916; padding: 2rem 1.5rem; }
   .eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9E9C96; margin-bottom: 6px; }
@@ -20,6 +30,16 @@
     color: #1A1916; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 9px;
     transition: border-color 0.15s, background 0.15s;
   }
+
+  .img-btn {
+    background: #fff;  border: 4px solid #E4E2DC;border-radius: 6px;
+    padding: 3px 8px; font-family: inherit; font-size: 13px; font-weight: 500;
+    color: #1A1916; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 9px;
+    margin-top: 6px;
+    transition: border-color 0.15s, background 0.15s;
+
+  }  
+
   .team-btn:hover { background: #FAFAF8; border-color: #C8C5BC; }
   .team-btn.active { background: #1A1916; color: #FFFFFF; border-color: #1A1916; }
   .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
@@ -43,7 +63,7 @@
   .svc-icon { font-size: 18px; flex-shrink: 0; }
   .svc-name { font-size: 13px; font-weight: 500; line-height: 1.2; }
   .svc.unavailable .svc-name { color: #ffffff; }
-  .svc.degraded    .svc-name { color: #381597; }
+  .svc.degraded    .svc-name { color: #ffffff; }
   .svc.available   .svc-name { color: #ffffff; }
   .svc-status { font-size: 14px; margin-top: 2px; }
   .svc.unavailable .svc-status { color: #ffffff; }
@@ -57,18 +77,29 @@
 </style>
 </head>
 <body>
-
+<div id="lightbox" onclick="closeImg()">
+  <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
 <div class="eyebrow">Marvins'</div>
 <h1>Impact Viewer</h1>
-<p class="subtitle">Select a team below to see which services or tools are affected by their work.</p>
+<p class="subtitle">Select a team below to see which services or tools are affected by their work.</p>      
 
+<div style="position:fixed; top:16px; right:16px; display:flex; gap:8px; z-index:998;">
+  <button class="img-btn" onclick="openImg('NorthEastSwitch.png')">NorthEast</button>
+  <button class="img-btn" onclick="openImg('ScottishSwitch.png')">Scottish</button>
+</div>
+<div class="services-grid">
+
+    </div>
 <div class="label">Airwave</div>
 <div class="Airwave-grid">
   <button class="team-btn" onclick="show('Airwave Site Outage', this)"><span class="dot" style="background:#E24B4A; justify-content: center"></span>Site Outage</button>
   <button class="team-btn" onclick="show('Airwave MCADI', this)"><span class="dot" style="background:#1b961b; justify-content: center"></span>MCADI</button> 
   <button class="team-btn" onclick="show('Airwave CCM Pause', this)"><span class="dot" style="background:#8bb67a; justify-content: center"></span>CCM Pause</button>  
-  <button class="team-btn" onclick="show('ZONE CONTROLLER SWAP-OVER', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>Zone Controller</button>
-  <button class="team-btn" onclick="show('Airwave SDR Reset/Swapover', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>SDR Reset/Swapover</button>
+  <button class="team-btn" onclick="show('Airwave-ZC', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>Zone Controller (ZC)</button>
+  <button class="team-btn" onclick="show('Airwave-SDR', this)"><span class="dot" style="background:#a323a3;text-align:center; justify-content: center"></span>Short Data Router (SDR)</button>
+  <button class="team-btn" onclick="show('Airwave-ATR', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>Air Traffic Router (ATR)</button>
+
 </div>
 
 <div class="divider"></div>
@@ -159,9 +190,9 @@ changes.</div>
     </div>
   </div>
 
-  <div id="panel-Airwave SDR Reset/Swapover" class="team-panel">
-    <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave SDR Reset/Swapover</span></div>
-    <div class="panel-desc">Short Data router carries, short data.</div>
+  <div id="panel-Airwave-SDR" class="team-panel">
+    <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave Short Data Router</span></div>
+    <div class="panel-desc">Short Data router carries.......Short Data.</div>
     <div class="legend">
       <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
       <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
@@ -171,9 +202,8 @@ changes.</div>
     <div class="services-grid">
       <div class="svc available"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Emergency Activations</div><div class="svc-status">Available</div></div></div>
     </div>
-    <hr class="status-divider">       
+    <hr class="status-divider">
     <div class="services-grid">
-
       <div class="svc unavailable"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Dual Dispatch</div><div class="svc-status">Unavailable</div></div></div>                
       <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
       <div class="svc unavailable"><span class="svc-icon">&#128189;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
@@ -191,15 +221,21 @@ changes.</div>
 </div>
   </div>
 
-
-  <div id="panel-ZONE CONTROLLER SWAP-OVER" class="team-panel">
-    <div class="panel-header"><span class="panel-dot" style="background:#7F77DD"></span><span class="panel-title">ZONE CONTROLLER SWAP-OVER</span></div>
+  <div id="panel-Airwave-ZC" class="team-panel">
+    <div class="panel-header"><span class="panel-dot" style="background:#7F77DD"></span><span class="panel-title">Airwave Zone Controller</span></div>
     <div class="panel-desc">Meeting room AV, video conferencing, and comms tools.</div>
     <div class="legend">
       <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
       <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
       <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
     </div>
+        <div class="services-grid">
+
+      <div class="svc degraded"><span class="svc-icon">&#127760;</span><div><div class="svc-name">RSSI Strength</div><div class="svc-status">Degraded</div></div></div>
+      <div class="svc degraded"><span class="svc-icon">&#128246;</span><div><div class="svc-name">Handheld Coverage</div><div class="svc-status">Degraded</div></div></div>
+    </div>
+
+
     <hr class="status-divider">
     <div class="services-grid">
       <div class="svc unavailable"><span class="svc-icon">&#128249;</span><div><div class="svc-name">Voice</div><div class="svc-status">Unavailable</div></div></div>
@@ -208,6 +244,32 @@ changes.</div>
       <div class="svc unavailable"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Status Messages</div><div class="svc-status">Unavailable</div></div></div>
     </div>
   </div>
+
+  <div id="panel-Airwave-ATR" class="team-panel">
+    <div class="panel-header"><span class="panel-dot" style="background:#7F77DD"></span><span class="panel-title">Airwave Air Traffic Router</span></div>
+    <div class="panel-desc">Device within the switch that handles non call processing data for the Zone Controller (ZC)</div>
+    <div class="legend">
+      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+ 
+    </div>
+        <div class="services-grid">
+      <div class="svc available"><span class="svc-icon">&#129481;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#9749;</span><div><div class="svc-name">Data</div><div class="svc-status">Available</div></div></div>          
+      <div class="svc available"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Emergency Activations</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#128222;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Available</div></div></div>
+          
+    </div>
+    <hr class="status-divider">
+
+    <div class="services-grid">
+      <div class="svc unavailable"><span class="svc-icon">&#128249;</span><div><div class="svc-name">Status messaging</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Radio Affiliation</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128189;</span><div><div class="svc-name">Stun or un-stun</div><div class="svc-status">Unavailable</div></div></div>
+    </div>
+  </div>  
 
   <div id="panel-LifeX URG Failover" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#639922"></span><span class="panel-title">LifeX</span></div>
@@ -226,11 +288,11 @@ changes.</div>
       <div class="svc unavailable"><span class="svc-icon">&#129481;</span><div><div class="svc-name">Voice</div><div class="svc-status">Unavailable</div></div></div>
       <div class="svc unavailable"><span class="svc-icon">&#9749;</span><div><div class="svc-name">Data</div><div class="svc-status">Unavailable</div></div></div>
       <div class="svc unavailable"><span class="svc-icon">&#128226;</span><div><div class="svc-name">CallBack Requests</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#127838;</span><div><div class="svc-name">Status Messaging</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Status Messaging</div><div class="svc-status">Unavailable</div></div></div>
     </div>
   </div>
 
-    <div id="panel-LifeX" class="team-panel">
+  <div id="panel-LifeX" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#639922"></span><span class="panel-title">LifeX</span></div>
     <div class="panel-desc">LifeX Infrastructure and other ICCS Functionality.</div>
     <div class="legend">
@@ -239,7 +301,7 @@ changes.</div>
       <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
     </div>
     <div class="services-grid">
-      <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Airwave Desktop Radio</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Desktop Radio</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">HandHeld Radios</div><div class="svc-status">Available</div></div></div>
 
     </div>
@@ -256,6 +318,7 @@ changes.</div>
 </div>
 
 <script>
+
 function show(id, btn) {
   var panels = document.querySelectorAll('.team-panel');
   for (var i = 0; i < panels.length; i++) panels[i].classList.remove('visible');
@@ -267,7 +330,18 @@ function show(id, btn) {
   for (var j = 0; j < btns.length; j++) btns[j].classList.remove('active');
   if (btn) btn.classList.add('active');
 }
+function openImg(src) {
+  document.getElementById('lightbox-img').src = 'https://marvin-the-servant.github.io/Is-it-Down/images/' + src;
+  document.getElementById('lightbox').style.display = 'flex';
+}
+function closeImg() {
+  document.getElementById('lightbox').style.display = 'none';
+}
 </script>
+
+<div id="lightbox" onclick="closeImg()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:999; align-items:center; justify-content:center;">
+  <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
 
 </body>
 </html>
