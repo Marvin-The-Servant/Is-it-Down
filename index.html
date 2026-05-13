@@ -60,7 +60,7 @@
   .svc.unavailable  { background: #ff0000; border-color: #F7C1C1; }
   .svc.degraded { background: #ff8800; border-color: #FAC775; }
   .svc.available    { background: #5479f1; border-color: #85B7EB; }
-  .svc-icon { font-size: 18px; flex-shrink: 0; }
+  .svc-icon { font-size: 33px; flex-shrink: 0; }
   .svc-name { font-size: 13px; font-weight: 500; line-height: 1.2; }
   .svc.unavailable .svc-name { color: #ffffff; }
   .svc.degraded    .svc-name { color: #ffffff; }
@@ -93,9 +93,9 @@
     </div>
 <div class="label">Airwave</div>
 <div class="Airwave-grid">
-  <button class="team-btn" onclick="show('Airwave Site Outage', this)"><span class="dot" style="background:#E24B4A; justify-content: center"></span>Site Outage</button>
-  <button class="team-btn" onclick="show('Airwave MCADI', this)"><span class="dot" style="background:#1b961b; justify-content: center"></span>MCADI</button> 
-  <button class="team-btn" onclick="show('Airwave CCM Pause', this)"><span class="dot" style="background:#8bb67a; justify-content: center"></span>CCM Pause</button>  
+  <button class="team-btn" onclick="show('Airwave-Outage', this)"><span class="dot" style="background:#E24B4A; justify-content: center"></span>Site Outage</button>
+  <button class="team-btn" onclick="show('Airwave-MCADI', this)"><span class="dot" style="background:#1b961b; justify-content: center"></span>MCADI</button> 
+  <button class="team-btn" onclick="show('Airwave-CCM', this)"><span class="dot" style="background:#8bb67a; justify-content: center"></span>CCM Pause</button>  
   <button class="team-btn" onclick="show('Airwave-ZC', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>Zone Controller (ZC)</button>
   <button class="team-btn" onclick="show('Airwave-SDR', this)"><span class="dot" style="background:#a323a3;text-align:center; justify-content: center"></span>Short Data Router (SDR)</button>
   <button class="team-btn" onclick="show('Airwave-ATR', this)"><span class="dot" style="background:#a323a3; justify-content: center"></span>Air Traffic Router (ATR)</button>
@@ -107,7 +107,7 @@
 <div class="label">LifeX</div>
 <div class="LifeX-grid">
   <button class="team-btn" onclick="show('LifeX', this)"><span class="dot" style="background:#639922"></span>Offline</button>
-  <button class="team-btn" onclick="show('LifeX URG Failover', this)"><span class="dot" style="background:#639922"></span>URG Failover</button>  
+  <button class="team-btn" onclick="show('LifeX-URG', this)"><span class="dot" style="background:#639922"></span>URG Failover</button>  
 </div>
 
 <div class="divider"></div>
@@ -119,7 +119,7 @@
     <span>Select a team to view impact</span>
   </div>
 
-  <div id="panel-Airwave Site Outage" class="team-panel">
+  <div id="panel-Airwave-Outage" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#E24B4A"></span><span class="panel-title">Airwave Site Outage</span></div>
     <div class="panel-desc">Airwave Site Outage</div>
     <div class="legend">
@@ -130,7 +130,7 @@
 <hr class="status-divider">
     <div class="services-grid">
 
-      <div class="svc Advised"><span class="svc-icon">&#128274;</span><div><div class="svc-name">DMO</div><div class="svc-status">Advised</div></div></div>
+      <div class="svc Advised"><span class="svc-icon">&#128657;</span><div><div class="svc-name">DMO</div><div class="svc-status">Advised</div></div></div>
     </div>
 <hr class="status-divider">
     <div class="services-grid">
@@ -141,7 +141,7 @@
 
   </div>
 
-  <div id="panel-Airwave MCADI" class="team-panel">
+  <div id="panel-Airwave-MCADI" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave MCADI</span></div>
     <div class="panel-desc">A service providing data communications, status messages, DGNA capabilities, and location updates.</div>
 
@@ -152,20 +152,21 @@
     </div>
 <hr class="status-divider">
     <div class="services-grid">
-      <div class="svc available"><span class="svc-icon">&#128189;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
-      <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Available</div></div></div>
-      <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Available</div></div></div>   
+      <div class="svc available"><span class="svc-icon">&#128483;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Available</div></div></div>   
     </div>
 <hr class="status-divider">
     <div class="services-grid">
+      <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Status Messages</div><div class="svc-status">Unavailable</div></div></div>      
       <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Stun Terminals</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Status Messages</div><div class="svc-status">Unavailable</div></div></div>
+
       <div class="svc unavailable"><span class="svc-icon">&#128189;</span><div><div class="svc-name">DGNA Capabilities</div><div class="svc-status">Unavailable</div></div></div>
       <div class="svc unavailable"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Location Updates</div><div class="svc-status">Unavailable</div></div></div>
     </div>
   </div>
 
-  <div id="panel-Airwave CCM Pause" class="team-panel">
+  <div id="panel-Airwave-CCM" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave CCM Pause</span></div>
     <div class="panel-desc">System used to manage network or site configurations. During this 
 maintenance, the "CCM XXXX cluster" will be paused, blocking both customers and Airwave from making configuration 
@@ -177,7 +178,7 @@ changes.</div>
     </div>
 <hr class="status-divider">
         <div class="services-grid">
-      <div class="svc available"><span class="svc-icon">&#129481;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#128483;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#9749;</span><div><div class="svc-name">Data</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">CallBack Requests</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#127838;</span><div><div class="svc-name">Status Messaging</div><div class="svc-status">Available</div></div></div>
@@ -238,10 +239,10 @@ changes.</div>
 
     <hr class="status-divider">
     <div class="services-grid">
-      <div class="svc unavailable"><span class="svc-icon">&#128249;</span><div><div class="svc-name">Voice</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#128189;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Status Messages</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128483;</span><div><div class="svc-name">Voice</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128233;</span><div><div class="svc-name">Status Messages</div><div class="svc-status">Unavailable</div></div></div>
     </div>
   </div>
 
@@ -258,20 +259,20 @@ changes.</div>
       <div class="svc available"><span class="svc-icon">&#129481;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#9749;</span><div><div class="svc-name">Data</div><div class="svc-status">Available</div></div></div>          
       <div class="svc available"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Emergency Activations</div><div class="svc-status">Available</div></div></div>
-      <div class="svc available"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Available</div></div></div>
-      <div class="svc available"><span class="svc-icon">&#128222;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Available</div></div></div>
+      <div class="svc available"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Available</div></div></div>
           
     </div>
     <hr class="status-divider">
 
     <div class="services-grid">
-      <div class="svc unavailable"><span class="svc-icon">&#128249;</span><div><div class="svc-name">Status messaging</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128233;</span><div><div class="svc-name">Status messaging</div><div class="svc-status">Unavailable</div></div></div>
       <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Radio Affiliation</div><div class="svc-status">Unavailable</div></div></div>
       <div class="svc unavailable"><span class="svc-icon">&#128189;</span><div><div class="svc-name">Stun or un-stun</div><div class="svc-status">Unavailable</div></div></div>
     </div>
   </div>  
 
-  <div id="panel-LifeX URG Failover" class="team-panel">
+  <div id="panel-LifeX-URG" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#639922"></span><span class="panel-title">LifeX</span></div>
     <div class="panel-desc">LifeX move of Universal Radio Gateways (URG).</div>
     <div class="legend">
@@ -287,8 +288,8 @@ changes.</div>
     <div class="services-grid">
       <div class="svc unavailable"><span class="svc-icon">&#129481;</span><div><div class="svc-name">Voice</div><div class="svc-status">Unavailable</div></div></div>
       <div class="svc unavailable"><span class="svc-icon">&#9749;</span><div><div class="svc-name">Data</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#128226;</span><div><div class="svc-name">CallBack Requests</div><div class="svc-status">Unavailable</div></div></div>
-      <div class="svc unavailable"><span class="svc-icon">&#128226;</span><div><div class="svc-name">Status Messaging</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#9995;</span><div><div class="svc-name">CallBack Requests</div><div class="svc-status">Unavailable</div></div></div>
+      <div class="svc unavailable"><span class="svc-icon">&#128233;</span><div><div class="svc-name">Status Messaging</div><div class="svc-status">Unavailable</div></div></div>
     </div>
   </div>
 
