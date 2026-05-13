@@ -320,6 +320,14 @@ changes.</div>
 
 <script>
 
+window.onload = function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash) {
+    var btn = document.querySelector('[onclick*="' + hash + '"]');
+    if (btn) show(hash, btn);
+  }
+}
+
 function show(id, btn) {
   var panels = document.querySelectorAll('.team-panel');
   for (var i = 0; i < panels.length; i++) panels[i].classList.remove('visible');
