@@ -77,6 +77,33 @@
 </style>
 </head>
 <body>
+  <div style="
+  background: repeating-linear-gradient(
+    45deg,
+    #f7c948,
+    #f7c948 20px,
+    #1a1916 20px,
+    #1a1916 40px
+  );
+  padding: 12px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 997;
+">
+  <div style="
+    background: #f7c948;
+    display: inline-block;
+    padding: 6px 24px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    color: #1a1916;
+    border-radius: 4px;
+  ">
+    &#9888; WORK IN PROGRESS &#9888;
+  </div>
+</div>
 <div id="lightbox" onclick="closeImg()">
   <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;">
 </div>
@@ -84,10 +111,7 @@
 <h1>Impact Viewer</h1>
 <p class="subtitle">Select a team below to see which services or tools are affected by their work.</p>      
 
-<div style="position:fixed; top:16px; right:16px; display:flex; gap:8px; z-index:998;">
-  <button class="img-btn" onclick="openImg('NorthEastSwitch.png')">NorthEast</button>
-  <button class="img-btn" onclick="openImg('ScottishSwitch.png')">Scottish</button>
-</div>
+
 <div class="services-grid">
 
     </div>
@@ -144,18 +168,32 @@
   <div id="panel-Airwave-MCADI" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave MCADI</span></div>
     <div class="panel-desc">A service providing data communications, status messages, DGNA capabilities, and location updates.</div>
+<div style="display:flex; align-items:flex-start; gap:33px; margin-bottom:1rem;">
+  
+  <!-- Legend stays vertical -->
+  <div class="legend" style="flex-direction:column; margin-bottom:0;">
+    <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+    <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+    <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+  </div>
 
-    <div class="legend">
-      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
-      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
-      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
-    </div>
+  <!-- Buttons to the right -->
+  <div style="display:flex; flex-direction:column; gap:8px; margin-left:44px;">
+    <button class="img-btn" onclick="openImg('NorthEast.png')">NorthEast</button>
+    <button class="img-btn" onclick="openImg('ScottishSwitch.png')">Scottish</button>
+  </div>
+
+</div>
+
+
 <hr class="status-divider">
     <div class="services-grid">
       <div class="svc available"><span class="svc-icon">&#128483;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Call Back Requests</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#9995;</span><div><div class="svc-name">Urgent Call Back Requests</div><div class="svc-status">Available</div></div></div>   
     </div>
+
+
 <hr class="status-divider">
     <div class="services-grid">
       <div class="svc unavailable"><span class="svc-icon">&#127867;</span><div><div class="svc-name">Status Messages</div><div class="svc-status">Unavailable</div></div></div>      
@@ -171,11 +209,25 @@
     <div class="panel-desc">System used to manage network or site configurations. During this 
 maintenance, the "CCM XXXX cluster" will be paused, blocking both customers and Airwave from making configuration 
 changes.</div>
-    <div class="legend">
-      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
-      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
-      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
-    </div>
+
+<div style="display:flex; align-items:flex-start; gap:33px; margin-bottom:1rem;">
+  
+  <!-- Legend stays vertical -->
+  <div class="legend" style="flex-direction:column; margin-bottom:0;">
+    <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+    <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+    <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+  </div>
+
+  <!-- Buttons to the right -->
+  <div style="display:flex; flex-direction:column; gap:8px; margin-left:44px;">
+    <button class="img-btn" onclick="openImg('NorthEast.png')">NorthEast</button>
+    <button class="img-btn" onclick="openImg('ScottishSwitch.png')">Scottish</button>
+  </div>
+
+</div>
+
+
 <hr class="status-divider">
         <div class="services-grid">
       <div class="svc available"><span class="svc-icon">&#128483;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
@@ -194,11 +246,24 @@ changes.</div>
   <div id="panel-Airwave-SDR" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#378ADD; justify-content: center";></span><span class="panel-title">Airwave Short Data Router</span></div>
     <div class="panel-desc">Short Data router carries.......Short Data.</div>
-    <div class="legend">
-      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
-      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
-      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
-    </div>
+<div style="display:flex; align-items:flex-start; gap:33px; margin-bottom:1rem;">
+  
+  <!-- Legend stays vertical -->
+  <div class="legend" style="flex-direction:column; margin-bottom:0;">
+    <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+    <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+    <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+  </div>
+
+  <!-- Buttons to the right -->
+  <div style="display:flex; flex-direction:column; gap:8px; margin-left:44px;">
+    <button class="img-btn" onclick="openImg('NorthEast.png')">NorthEast</button>
+    <button class="img-btn" onclick="openImg('ScottishSwitch.png')">Scottish</button>
+  </div>
+
+</div>
+
+
 <hr class="status-divider">    
     <div class="services-grid">
       <div class="svc available"><span class="svc-icon">&#128205;</span><div><div class="svc-name">Emergency Activations</div><div class="svc-status">Available</div></div></div>
@@ -225,16 +290,29 @@ changes.</div>
   <div id="panel-Airwave-ZC" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#7F77DD"></span><span class="panel-title">Airwave Zone Controller</span></div>
     <div class="panel-desc">Meeting room AV, video conferencing, and comms tools.</div>
-    <div class="legend">
-      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
-      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
-      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
-    </div>
+<div style="display:flex; align-items:flex-start; gap:33px; margin-bottom:1rem;">
+  
+  <!-- Legend stays vertical -->
+  <div class="legend" style="flex-direction:column; margin-bottom:0;">
+    <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+    <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+    <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+  </div>
+
+  <!-- Buttons to the right -->
+  <div style="display:flex; flex-direction:column; gap:8px; margin-left:44px;">
+    <button class="img-btn" onclick="openImg('NorthEast.png')">NorthEast</button>
+    <button class="img-btn" onclick="openImg('ScottishSwitch.png')">Scottish</button>
+  </div>
+
+</div>
         <div class="services-grid">
 
       <div class="svc degraded"><span class="svc-icon">&#127760;</span><div><div class="svc-name">RSSI Strength</div><div class="svc-status">Degraded</div></div></div>
       <div class="svc degraded"><span class="svc-icon">&#128246;</span><div><div class="svc-name">Handheld Coverage</div><div class="svc-status">Degraded</div></div></div>
     </div>
+
+
 
 
     <hr class="status-divider">
@@ -249,12 +327,22 @@ changes.</div>
   <div id="panel-Airwave-ATR" class="team-panel">
     <div class="panel-header"><span class="panel-dot" style="background:#7F77DD"></span><span class="panel-title">Airwave Air Traffic Router</span></div>
     <div class="panel-desc">Device within the switch that handles non call processing data for the Zone Controller (ZC)</div>
-    <div class="legend">
-      <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
-      <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
-      <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
- 
-    </div>
+<div style="display:flex; align-items:flex-start; gap:33px; margin-bottom:1rem;">
+  
+  <!-- Legend stays vertical -->
+  <div class="legend" style="flex-direction:column; margin-bottom:0;">
+    <div class="legend-item"><span class="pip" style="background:#E24B4A"></span>Unavailable</div>
+    <div class="legend-item"><span class="pip" style="background:#EF9F27"></span>Degraded</div>
+    <div class="legend-item"><span class="pip" style="background:#639922"></span>Available</div>
+  </div>
+
+  <!-- Buttons to the right -->
+  <div style="display:flex; flex-direction:column; gap:8px; margin-left:44px;">
+    <button class="img-btn" onclick="openImg('NorthEast.png')">NorthEast</button>
+    <button class="img-btn" onclick="openImg('ScottishSwitch.png')">Scottish</button>
+  </div>
+
+</div>
         <div class="services-grid">
       <div class="svc available"><span class="svc-icon">&#129481;</span><div><div class="svc-name">Voice</div><div class="svc-status">Available</div></div></div>
       <div class="svc available"><span class="svc-icon">&#9749;</span><div><div class="svc-name">Data</div><div class="svc-status">Available</div></div></div>          
