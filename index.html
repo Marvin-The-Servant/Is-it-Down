@@ -110,7 +110,13 @@
 <div class="eyebrow">Marvins'</div>
 <h1>Impact Viewer</h1>
 <p class="subtitle">Select a team below to see which services or tools are affected by their work.</p>      
-
+  <!-- Suggest a Change box - fixed width -->
+<div class="suggest-box" style="position:fixed; top:122px; right:165px; width:260px; background:#FFFFFF; border:1px solid #E4E2DC; border-radius:10px; padding:1.7rem; z-index:996;">
+  <h3 style="font-size:15px; margin-bottom:10px;">Suggest a Change</h3>
+  <input type="text" id="suggestName" placeholder="Your name" style="width:100%; padding:5px; margin-bottom:5px; border:1px solid #E4E2DC; border-radius:6px; box-sizing:border-box;">
+  <textarea id="suggestText" placeholder="What would you like to suggest?" style="width:100%; padding:8px; margin-bottom:8px; border:1px solid #E4E2DC; border-radius:6px; min-height:80px; box-sizing:border-box;"></textarea>
+  <button onclick="sendSuggestion()" class="team-btn" style="justify-content:center; width:100%;">Submit</button>
+</div>
 
 <div class="services-grid">
 
@@ -405,6 +411,7 @@ changes.</div>
   </div>
 </div>
 
+
 <script>
 
 window.onload = function() {
@@ -415,7 +422,25 @@ window.onload = function() {
   }
 }
 
+function sendSuggestion() {
+  var data = {
+    team: selectedTeam || "General",
+    suggestion: document.getElementById('suggestText').value,
+    name: document.getElementById('suggestName').value
+  };
+
+  fetch('https://default10efe0bda0304bca809cb5e6745e49.9a.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/99346360ff954ddeb17e6dba938e0e25/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=dnvg_eK15F2APqc4MmRCDrAinZyYL7o5FpdHhTT0h7I', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(function() { alert('Thanks! Your suggestion was sent.'); })
+  .catch(function() { alert('Something went wrong, please try again.'); });
+}
+var selectedTeam = "";
+
 function show(id, btn) {
+  selectedTeam = id;  
   var panels = document.querySelectorAll('.team-panel');
   for (var i = 0; i < panels.length; i++) panels[i].classList.remove('visible');
   var empty = document.getElementById('empty');
